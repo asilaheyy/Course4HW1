@@ -9,13 +9,16 @@ import java.util.stream.Stream;
 public class Main {
     public static void main(String[] args) {
 
-        List<Integer> list = new LinkedList<>(List.of(20, 40, 60, 70, 2, 8, 6, 30, 55, 47));
+        List<Integer> list = new LinkedList<>(List.of(20, 40, 60, 71, 2, 8, 6, 30, 55, 47));
         findMinMax(list.stream(), Integer::compareTo, (integer, integer2) -> {
             System.out.println("Min: " + integer);
             System.out.println("Max: " + integer2);
         });
 
-        task2();
+
+
+    //вывод четных чисел из листа
+        System.out.println(list.stream().filter(num -> num %2 == 0).collect(Collectors.toList()));
 
     }
 
@@ -31,12 +34,6 @@ public class Main {
         } else {
             minMaxConsumer.accept(min, max);
         }
-    }
-
-    //вывод четных чисел
-    public static void task2(){
-    Stream.iterate(2,n -> n+2).limit(10).forEach(System.out::println);
-
     }
 
 }
